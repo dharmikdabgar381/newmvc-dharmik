@@ -12,7 +12,7 @@ spl_autoload_register(function($class_name)
 
 
 if (!(Ccc::getModel('Core_Request')->getParams('c')) || !(Ccc::getModel('Core_Request')->getParams('a'))) {
-	header('Location:http://localhost/cybercom/new_project/index.php?c=product&a=grid');
+	header('Location:http://localhost/newmvc-dharmik/index.php?c=product&a=grid');
 	exit();
 }
 
