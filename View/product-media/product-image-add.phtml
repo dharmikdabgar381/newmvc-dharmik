@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ADD IMAGE</title>
+</head>
+<body>
+	<table border="1" width="100%">
+		<tr>
+			<td><h2>ADD Image</h2></td>
+			<td><a href="index.php?c=product&a=grid">CANCEL</td>
+		</tr>
+	</table>
+	<form method="post" action="index.php?c=product_media&a=insert" enctype="multipart/form-data">
+		<table border="1" width="100%">
+			<tr>
+				<td colspan="2">Add Image & Their Imformation</td>
+			</tr>
+			<tr>
+				<input type="hidden" name="media[product_id]" value="<?php echo $_GET['id']?>">
+			</tr>
+			<tr>
+				<td>Upload Image :</td>
+				<td><input type="file" name="media[uploadImage]"></td>
+			</tr>
+			<tr>
+				<td>Image Name :</td>
+				<td><input type="text" name="media[name]"></td>
+			</tr>
+			<?php $statusOptions = [1=>"Active",2=>"Inactive"]; ?>
+			<tr>
+				<td>Status</td>
+				<td>
+					<select name="media[status]">
+						<?php foreach ($statusOptions as $key => $value): ?>
+							<option value="<?php echo $key;?>"><?php echo $value;?></option>
+						<?php endforeach; ?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit" name="submit" value="submit">SAVE</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

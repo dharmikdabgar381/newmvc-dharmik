@@ -1,0 +1,43 @@
+<?php
+$shippingMethods = $this->getData();
+?>
+<div class="content">
+	<table width="100%">
+		<tr>
+			<td colspan="1"><center><h2>Add Shipping Method</h2></center></td>
+			<td align="center"><a href="index.php?c=shipping&a=grid" class="btn btn-primary">CANCEL</td>
+		</tr>
+	</table>
+	<center>
+	<form action="index.php?c=shipping&a=save&id=<?php echo $shippingMethods->shipping_id;?>"  method="post">
+	<table border="0" width="50%">
+		<tr>
+			<th align="center" colspan="2">Enter Shipping Method Information</th>
+		</tr>
+		
+		<tr>
+			<td class="input-group-text">Name</td>
+			<td><input type="text" name="shipping[name]" value="<?php echo $shippingMethods->name; ?>" class="form-control"></td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Amount</td>
+			<td><input type="text" name="shipping[amount]" value="<?php echo $shippingMethods->amount; ?>" class="form-control"></td>
+		</tr>
+		<?php $statusOptions = [1=>"Active",2=>"Inactive"]; ?>
+		<tr>
+			<td class="input-group-text">Status</td>
+			<td>
+				<select name="shipping[status]" class="form-select">
+					<?php foreach ($statusOptions as $key => $value): ?>
+						<option value="<?php echo $key;?>" <?php if($shippingMethods->status==$key) echo "selected";?>><?php echo $value;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><center><button type="submit" name="submit" class="btn btn-primary">Save</center></td>
+		</tr>
+	</table>
+	</form>
+	</center>
+</div>

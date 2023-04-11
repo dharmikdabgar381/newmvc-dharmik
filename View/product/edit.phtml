@@ -1,0 +1,67 @@
+<?php
+$products = $this->getData();
+?>
+<div class="content">
+	<table width="100%">
+		<tr>
+			<td colspan="1"><h2>Edit Product</h2></td>
+			<td align="center"><a href="index.php?c=product&a=grid" class="btn btn-primary">CANCEL</td>
+		</tr>
+	</table>
+	<center>
+	<form action="index.php?c=product&a=save&id=<?php echo $products->product_id;?>" method="post">
+	<table border="0" width="50%">
+		<tr>
+			<th align="center" colspan="2">Edit Product Information</th>
+		</tr>
+		<tr>
+			<td class="input-group-text">Name</td>
+			<td><input type="text" name="product[product_name]" value="<?php echo $products->product_name; ?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">SKU</td>
+			<td><input type="text" name="product[sku]" value="<?php echo $products->sku; ?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Cost</td>
+			<td><input type="text" name="product[cost]" value="<?php echo $products->cost; ?>" class="form-control"></td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Price</td>
+			<td><input type="text" name="product[price]" value="<?php echo $products->price; ?>" class="form-control"></td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Quntity</td>
+			<td><input type="text" name="product[quntity]" value="<?php echo $products->quntity; ?>" class="form-control"></td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Description</td>
+			<td><input type="text" name="product[description]" value="<?php echo $products->description; ?>" class="form-control"></td>
+		</tr>
+		<?php $statusOptions = [1=>"Active",2=>"Inactive"]; ?>
+		<tr>
+			<td class="input-group-text">Status</td>
+			<td>
+				<select name="product[status]" class="form-select">
+					<?php foreach ($statusOptions as $key => $value): ?>
+						<option value="<?php echo $key;?>" <?php if($products->status==$key) echo "selected";?>><?php echo $value;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Color</td>
+			<td><input type="text" name="product[color]" value="<?php echo $products->color; ?>" class="form-control"></td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Material</td>
+			<td><input type="text" name="product[material]" value="<?php echo $products->material; ?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><button type="submit" name="submit" class="btn btn-primary">Save</td>
+		</tr>
+	</table>
+	</center>
+	</form>
+</div>

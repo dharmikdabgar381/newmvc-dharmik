@@ -1,0 +1,74 @@
+<?php
+$categories = $this->getData();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Category ADD</title>
+	<style type="text/css">
+		.content{
+		border: 1px solid gray;
+		height: 1000px;
+	}
+	.footer{
+		border: 1px solid gray;
+		height: 50px;
+	}
+	</style>
+</head>
+<body>
+<div><?php require_once 'View/Html/home.phtml';?></div>
+<div class="content">
+	<table width="100%">
+		<tr>
+			<td colspan="1"><h2>Add Category</h2></td>
+			<td align="center"><a href="index.php?c=category&a=grid">CANCEL</td>
+		</tr>
+	</table>
+	<form action="index.php?c=category&a=insert" method="post">
+	<table border="1" width="100%">
+		<tr>
+			<th align="center" colspan="2">Enter Category Information</th>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td><input type="text" name="category[category_name]"></td>
+		</tr>
+		<?php $statusOptions = [1=>"Active",2=>"Inactive"]; ?>
+		<tr>
+			<td>Status</td>
+			<td>
+				<select name="category[status]">
+					<?php foreach ($statusOptions as $key => $value): ?>
+						<option value="<?php echo $key;?>"><?php echo $value;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Parent Category</td>
+			<td>
+				<select name="category[parent_category_id]">
+					<option value="null">SELECT</option>
+					<?php foreach($categories as $key => $value): ?>
+						<option value="<?php echo $value->category_id; ?>"><?php echo $value->category_name;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+		<tr>	
+			<td>Description</td>
+			<td><input type="text" name="category[description]"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><button type="submit" name="submit">Save</td>
+		</tr>
+	</table>
+	</form>
+</div>
+<div class="footer"></div>
+</body>
+</html>

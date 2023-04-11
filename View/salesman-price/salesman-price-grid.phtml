@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Salesman Price Grid</title>
+</head>
+<body>
+<div><?php require_once 'View/Html/home.phtml';?></div>
+<table border="1" width="100%">
+	<tr>
+		<td><h2>Salesman Price Grid</h2></td>
+		<td><a href="salesman.php?a=grid">CANCEL</td>
+	</tr>
+</table>
+<form method="post" action="salesman.php?a=salesmanPriceUpdate&salesman_id=<?php echo $_GET['salesman_id'];?>">
+	<table border="1" width="100%">
+		<tr>
+			<td>
+				Salesman :
+				<select>
+					<?php foreach ($salesmen as $value): ?>
+						<option value="<?php echo $value['salesman_id'];?>" <?php if($value['salesman_id']==$_GET['salesman_id']) echo "selected";?>><?php echo $value['first_name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</td>
+			<td><button type="submit" name="submit" value="submit">UPDATE</td>
+			<td><button type="submit" name="delete" value="submit">DELETE</td>
+		</tr>
+	</table>
+	<table border="1" width="100%">
+		<tr>
+			<td>Entity Id</td>
+			<td>salesman Id</td>
+			<td>Product Id</td>
+			<td>Name</td>
+			<td>SKU</td>
+			<td>COST</td>
+			<td>Price</td>
+			<td>Salesman Price</td>
+			<td>Remove</td>
+		</tr>
+		<?php foreach($products as $value): ?>
+		<tr>
+			<td><?php echo $value['entity_id']?></td>
+
+			<td><?php echo $_GET['salesman_id'];?></td>
+			<td><input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>"><?php echo $value['product_id'];?></td>
+			<td><?php echo $value['product_name'];?></td>
+			<td><?php echo $value['sku'];?></td>
+			<td><?php echo $value['cost'];?></td>
+			<td><?php echo $value['price'];?></td>
+			<td><input type="number" name="price[<?php echo $value['product_id'];?>]" value="<?php echo $value['salesman_price']?>"></td>
+			<td><input type="checkbox" name="remove[]" value="<?php echo $value['product_id']?>"></td>
+		</tr>
+		<?php endforeach?>
+	</table>
+</form>
+</body>
+</html>

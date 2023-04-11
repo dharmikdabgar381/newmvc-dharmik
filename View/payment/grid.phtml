@@ -1,0 +1,31 @@
+<?php
+$paymentMethods = $this->getData()->getData();
+?>
+<div class="content">
+	<table border="0" width="100%" class="table table-striped">
+		<tr>
+			<td><h1 align="center">Payment Grid</h1></td>
+			<td align="center"><a href="index.php?c=payment&a=add" class="btn btn-primary">Payment ADD</td>
+		</tr>
+	</table>
+	<table border="0" width="100%" class="table table-striped">
+		<tr>
+			<th>Payment Id</th>
+			<th>Name</th>
+			<th>Status</th>
+			<th>Created Date</th>
+			<th>Updated Date</th>
+			<th colspan="2">Action</th>
+		</tr>
+		<?php foreach ($paymentMethods as $key => $method): ?>
+		<tr>
+			<td align="center"><?php echo $method->payment_id; ?></td>
+			<td><?php echo $method->name; ?></td>
+			<td><?php echo $method->status; ?></td>
+			<td><?php echo $method->created_at; ?></td>
+			<td><?php echo $method->updated_at; ?></td>
+			<td><a href="index.php?c=payment&a=edit&id=<?php echo $method->payment_id;?>" class="btn btn-dark"> EDIT</a></td>
+			<td><a href="index.php?c=payment&a=delete&id=<?php echo $method->payment_id;?>" class="btn btn-dark"> DELETE</a></td>
+		</tr>
+		<?php endforeach;?>
+	</table>

@@ -1,0 +1,50 @@
+<?php
+$products = $this->getData()->getData();
+?>
+<div class="content">
+	<table border="0" width="100%" class="table table-striped">
+		<tr>
+			<td><h1 align="center">Product Grid</h1></td>
+			<td align="center"><a href="index.php?c=product&a=add" class="btn btn-primary">Product ADD</td>
+		</tr>
+	</table>
+	<table border="0" width="100%" class="table table-striped">
+		<tr>
+			<th>Product Id</th>
+			<th>Name</th>
+			<th>SKU</th>
+			<th>Cost</th>
+			<th>Price</th>
+			<th>Quntity</th>
+			<th>Description</th>
+			<th>Status</th>
+			<th>Color</th>
+			<th>Material</th>
+			<th>created Date</th>
+			<th>Updated Date</th>
+			<th>ADD Product Image</th>
+			<th>Product Image Grid</th>
+			<th colspan="2">Action</th>
+		</tr>
+		<?php foreach ($products as $key => $product): ?>
+		<tr>
+			<td align="center"><?php echo $product->product_id; ?></td>
+			<td><?php echo $product->product_name; ?></td>
+			<td><?php echo $product->sku; ?></td>
+			<td><?php echo $product->cost; ?></td>
+			<td><?php echo $product->price; ?></td>
+			<td><?php echo $product->quntity; ?></td>
+			<td><?php echo $product->description; ?></td>
+			<td><?php echo $product->status; ?></td>
+			<td><?php echo $product->color; ?></td>
+			<td><?php echo $product->material; ?></td>
+			<td><?php echo $product->created_at; ?></td>
+			<td><?php echo $product->updated_at; ?></td>
+			<td><a href="index.php?c=product_media&a=add&id=<?php echo $product->product_id?>" class="btn btn-dark">ADD IMAGE</td>
+			<td><a href="index.php?c=product_media&a=grid&id=<?php echo $product->product_id?>" class="btn btn-dark">PRODUCT IMAGE GRID</td>
+			<td><a href="index.php?c=product&a=edit&id=<?php echo $product->product_id ?>" class="btn btn-dark"> EDIT</a></td>
+			<td><a href="index.php?c=product&a=delete&id=<?php echo $product->product_id ?>" class="btn btn-dark"> DELETE</a></td>
+		</tr>
+		<?php endforeach ?>
+	</table>
+</div>

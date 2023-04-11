@@ -1,0 +1,54 @@
+<?php
+$images = $this->getProductMedia();
+$product_id = $_GET['id'];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Grid Page</title>
+</head>
+<body>
+<div><?php require_once 'View/Html/home.phtml';?></div>
+<form method="post" action="index.php?c=product_media&a=update" enctype="multipart/form-data">
+<table border="1" width="100%">
+	<tr>
+		<td><h2>Uploaded Image Grid</h2></td>
+		<input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+		<td><a href="index.php?c=product&a=grid">PRODUCT GRID</td>
+		<td><button type="submit" name="submit" value="submit">SAVE</td>
+	</tr>
+</table>
+<!-- <form> -->
+	<table border="1" width="100%">
+		<tr>
+			<th>MEDIA ID</th>
+			<th>PRODUCT ID</th>
+			<th>IMAGE</th>
+			<th>THUMBNAIL</th>
+			<th>SMALL</th>
+			<th>BASE</th>
+			<th>GALLERY</th>
+			<th>STATUS</th>
+			<th>CREATED AT</th>
+			
+		</tr>
+		<?php foreach($images as $key=>$image):?>
+		<tr>
+			<td><?php echo $image['media_id'];?></td>
+			<td><?php echo $image['product_id'];?></td>
+			<td><img src="media/<?php echo $image['image'];?>" width="10%" height="10%"></td>
+			<td><input type="radio" name="media[thumbnail]" value="<?php echo $image['media_id'];?>" 
+				<?php if($image['thumbnail'] == 1) echo "checked='checked'";?>></td>
+			<td><input type="radio" name="media[small]" value="<?php echo $image['media_id']; ?>" <?php if($image['small'] == 1) echo "checked='checked'";?>></td>
+			<td><input type="radio" name="media[base]" value="<?php echo $image['media_id'];?>" <?php if($image['base'] == 1) echo "checked='checked'";?>></td>
+			<td><input type="checkbox" name="media[gallery[]]" value="<?php echo $image['image'];?>" <?php if($image['gallery'] == 1) echo "checked='checked'";?>></td>
+			<td><?php echo $image['status'];?></td>
+			<td><?php echo $image['created_at'];?></td>
+		</tr>
+	<?php endforeach;?>
+	</table>
+</form>
+</body>
+</html>

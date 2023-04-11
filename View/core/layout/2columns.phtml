@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>1 Column</title>
+</head>
+<body>
+<table border="1" width="100%"> 
+	<tr>
+		<td height="100" colspan="3"><?php $this->getChild('header')->render();?></td>
+	</tr>
+	<tr>
+		<td colspan="3"><?php $this->getChild('message')->render();?></td>
+	</tr>
+	<tr>
+		<td height="200"><?php $this->getChild('right')->render();?></td>
+		<td height="200" colspan="2"><?php $this->getChild('content')->render();?></td>
+	</tr>
+	<tr>
+		<td height="100" colspan="3"><?php $this->getChild('footer')->render();?></td>
+	</tr>
+</table>
+</body>
+</html>

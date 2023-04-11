@@ -1,0 +1,65 @@
+<?php
+$paymentMethods = $this->prepareChild();
+?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="content">
+	<table width="100%">
+		<tr>
+			<td colspan="1"><center><h2>Edit Payment Method</h2></center></td>
+			<td align="center"><a href="index.php?c=attribute&a=grid" class="btn btn-primary">CANCEL</td>
+		</tr>
+	</table>
+	<center>
+	<form action="index.php?c=payment&a=save&id=<?php echo $paymentMethods->attribute_id;?>" method="post">
+	<table width="50%">
+		<tr>
+			<th colspan="2"><center>Enter Attribute Method Information</center></th>
+		</tr>
+		
+		<tr>
+			<td class="input-group-text">Entity Type</td>
+			<td><input type="text" name="payment[entity_type]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Code</td>
+			<td><input type="text" name="payment[code]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Backend Type</td>
+			<td><input type="text" name="payment[backend_type]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Name</td>
+			<td><input type="text" name="payment[name]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Status</td>
+			<td><input type="text" name="payment[status]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Backend Model</td>
+			<td><input type="text" name="payment[backend_model]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Input Type</td>
+			<td><input type="text" name="payment[input_type]" value="<?php echo $paymentMethods->name;?>" class="form-control"></td>
+		</tr>
+		<?php $statusOptions = [1=>"Active",2=>"Inactive"]; ?>
+		<!-- <tr>
+			<td class="input-group-text">Status</td>
+			<td>
+				<select name="payment[status]" class="form-select">
+					<?php foreach ($statusOptions as $key => $value): ?>
+						<option value="<?php echo $key;?>" <?php if($paymentMethods->status==$key) echo "selected";?>><?php echo $value;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr> -->
+		<tr>
+			<!-- <td>&nbsp;</td> -->
+			<td colspan="2"><center><button type="submit" name="submit" class="btn btn-primary">Save</center></td>
+		</tr>
+	</table>
+	</form>
+</center>
+</div>

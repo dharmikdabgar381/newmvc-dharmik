@@ -1,0 +1,16 @@
+<?php
+
+$messageModel = Ccc::getModel('Core_Message');
+$messages = $messageModel->getMessages();
+
+if($messages)
+{
+	foreach($messages as $type => $message)
+	{
+		echo "<p class='{$type}'>";
+		echo $message;
+		echo "</p>";
+	}
+} 
+$messageModel->clearMessages();
+?>

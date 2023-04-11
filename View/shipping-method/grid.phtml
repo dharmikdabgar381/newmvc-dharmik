@@ -1,0 +1,34 @@
+<?php
+$shippingMethods = $this->getData()->getData();
+?>
+<div class="content">
+	<table border="0" width="100%" class="table table-striped">
+		<tr>
+			<td><h1 align="center">Shipping Grid</h1></td>
+			<td align="center"><a href="index.php?c=shipping&a=add" class="btn btn-primary">Shipping ADD</td>
+		</tr>
+	</table>
+	<table border="0" width="100%" class="table table-striped"> 
+		<tr>
+			<th>Shipping Id</th>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Status</th>
+			<th>created Date</th>
+			<th>updated Date</th>
+			<th colspan="2">Action</th>
+		</tr>
+		<?php foreach ($shippingMethods as $key => $method): ?>
+		<tr>
+			<td align="center"><?php echo $method->shipping_id; ?></td>
+			<td><?php echo $method->name; ?></td>
+			<td><?php echo $method->amount; ?></td>
+			<td><?php echo $method->status; ?></td>
+			<td><?php echo $method->created_at; ?></td>
+			<td><?php echo $method->updated_at; ?></td>
+			<td><a href="index.php?c=shipping&a=edit&id=<?php echo $method->shipping_id ?>" class="btn btn-dark"> EDIT</a></td>
+			<td><a href="index.php?c=shipping&a=delete&id=<?php echo $method->shipping_id ?>" class="btn btn-dark"> DELETE</a></td>
+		</tr>
+		<?php endforeach;?>
+	</table>
+</div>

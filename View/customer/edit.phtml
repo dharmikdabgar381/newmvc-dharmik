@@ -1,0 +1,87 @@
+<?php
+$customers = $this->getData('customer');
+// print_r($customers);die();
+$customer_address = $this->getData('customer_address');
+?>
+<div class="content">
+	<table width="100%">
+		<tr>
+			<td colspan="1"><center><h2>Edit Customer</h2></center></td>
+			<td align="center"><center><a href="index.php?c=customer&a=grid" class="btn btn-primary">CANCEL</center></td>
+		</tr>
+	</table>
+	<center>
+	<form action="index.php?c=customer&a=save&id=<?php echo $customers->customer_id;?>" method="post">
+	<table border="0" width="50%">
+		<tr>
+			<th align="center" colspan="2">Edit Customer Information</th>
+		</tr>
+		
+		<tr>
+			<td class="input-group-text">First Name</td>
+			<td><input type="text" name="customer[first_name]" value="<?php echo $customers->first_name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Last Name</td>
+			<td><input type="text" name="customer[last_name]" value="<?php echo $customers->last_name;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">Email</td>
+			<td><input type="text" name="customer[email]" value="<?php echo $customers->email;?>" class="form-control"></td>
+		</tr>
+		<?php $genderOptions = [1=>"Male",2=>"Female",3=>"Other"]; ?>
+		<tr>
+			<td class="input-group-text">Gender</td>
+			<td>
+				<select name="customer[gender]" class="form-select">
+					<?php foreach ($genderOptions as $key => $value): ?>
+						<option value="<?php echo $key;?>"<?php if($customers->gender==$key) echo "selected;"?>><?php echo $value;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+		<tr>	
+			<td class="input-group-text">Mobile No.</td>
+			<td><input type="text" name="customer[mobile]" value="<?php echo $customers->mobile;?>" class="form-control"></td>
+		</tr>
+		<?php $statusOptions = [1=>"Active",2=>"Inactive"]; ?>
+		<tr>
+			<td class="input-group-text">Status</td>
+			<td>
+				<select name="customer[status]" class="form-select">
+					<?php foreach ($statusOptions as $key => $value): ?>
+						<option value="<?php echo $key;?>" <?php if($customers->status==$key) echo "selected";?>><?php echo $value;?></option>
+					<?php endforeach ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th align="center" colspan="2">Enter Customer Address</th>
+		</tr>
+       		<tr>
+			<td class="input-group-text">Address</td>
+			<td><input type="text" name="customer_address[address]" value="<?php echo $customer_address->address;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">city</td>
+			<td><input type="text" name="customer_address[city]" value="<?php echo $customer_address->city;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">state</td>
+			<td><input type="text" name="customer_address[state]" value="<?php echo $customer_address->state;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">country</td>
+			<td><input type="text" name="customer_address[country]" value="<?php echo $customer_address->country;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td class="input-group-text">zipcode</td>
+			<td><input type="text" name="customer_address[zipcode]" value="<?php echo $customer_address->zipcode;?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<!-- <td>&nbsp;</td> -->
+			<td colspan="2"><center><button type="submit" name="submit" class="btn btn-primary">Save<center></td>
+		</tr>
+	</table>
+	</form>
+	</center>
