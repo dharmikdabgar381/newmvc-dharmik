@@ -10,6 +10,15 @@ spl_autoload_register(function($class_name)
 }
 );
 
+<<<<<<< HEAD
+=======
+
+if (!(Ccc::getModel('Core_Request')->getParams('c')) || !(Ccc::getModel('Core_Request')->getParams('a'))) {
+	header('Location:http://localhost/newmvc-dharmik/index.php?c=product&a=grid');
+	exit();
+}
+
+>>>>>>> 2e47b54a6a80cbafd2379c5b2b85aa25f3e82b20
 class Ccc
 {
 	public static function init()
