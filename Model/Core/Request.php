@@ -38,12 +38,12 @@ class Model_Core_Request
 
 	public function getActionName()
 	{
-		return $this->getParams('a','index');
+		return $this->getParams('a','grid');
 	}
 
 	public function getControllerName()
 	{
-		return $this->getParams('c','index');
+		return $this->getParams('c','product');
 	}
 }
 ?>

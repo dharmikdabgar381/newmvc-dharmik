@@ -7,9 +7,9 @@
 	<title>Home Page</title>	
 </head>
 <style type="text/css">
-	./*header{
-/*		border: 1px solid gray;*/
+	.header{
 		height: 60px;
+		background: #f8f9fa ;
 	}
 	
 	.alert {
@@ -18,9 +18,7 @@
 			color: white;
 			margin-bottom: 15px;
 		}
-	.links{
 
-	}
 	@keyframes hideAnimation {
 	to {
 	    visibility: hidden;
@@ -36,7 +34,6 @@
 		font-weight: bold;
 		animation: hideAnimation 0s ease-in 5s;
 		animation-fill-mode: forwards;
-/*		float: right;*/
 	}
 	.failure{
 		background-color: red ;
@@ -46,7 +43,6 @@
 		font-weight: bold;
 		animation: hideAnimation 0s ease-in 1s;
 		animation-fill-mode: forwards;
-/*		float: right;*/
 	}
 	.notice{
 		background-color: orange ;
@@ -56,29 +52,26 @@
 		font-weight: bold;
 		animation: hideAnimation 0s ease-in 0s;
 		animation-fill-mode: forwards;
-/*		float: right;*/
 	}
 	.link{
 		font-family: sans-serif;
 		color: black;
 		text-decoration: none;
-	}*/
+	}
 </style>
 
 <body>
 <div class="header">
 	<div class="links">
-		<table width="100%">
-			<tr>
-				<td><a href="index.php?c=product&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Product</a></td>
-				<td><a href="index.php?c=category&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Category</a></td>
-				<td><a href="index.php?c=customer&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Customer</a></td>
-				<td><a href="index.php?c=vendor&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Vendor</a></td>
-				<td><a href="index.php?c=salesman&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Salesman</a></td>
-				<td><a href="index.php?c=shipping&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Shipping Method</a></td>
-				<td><a href="index.php?c=payment&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Payment Method</a></td>
-			</tr>		
-		</table>
+		<nav class="navbar navbar-light">
+		<a href="index.php?c=product&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Product</a>
+		<a href="index.php?c=category&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Category</a>
+		<a href="index.php?c=customer&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Customer</a>
+		<a href="index.php?c=vendor&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Vendor</a>
+		<a href="index.php?c=salesman&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Salesman</a>
+		<a href="index.php?c=shipping&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Shipping Method</a>
+		<a href="index.php?c=payment&a=grid" class="navbar navbar-expand-lg navbar-light bg-light link-dark font-monospace">Payment Method</a>
+		</nav>
 	</div>
 </div>
 <!-- <div class="content">Content</div> -->
